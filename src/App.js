@@ -18,7 +18,7 @@ function App() {
     localStorage.setItem("numbers", JSON.stringify(numbers));
   }, [numbers]);
 
-  const formatNumbers = (arr, filteredArr = []) => {
+  const formatNumbers = (arr) => {
     if (arr.length > 1) {
       const highest = Math.max(...arr.map((item) => item.value));
       const lowest = Math.min(...arr.map((item) => item.value));
@@ -36,7 +36,7 @@ function App() {
       );
       copiedArray.splice(lowestIndex, 1);
       copiedArray.push(arr.find((item) => item.value === lowest));
-      setNumbers([...copiedArray, ...filteredArr]);
+      setNumbers([...copiedArray]);
     }
   };
 
